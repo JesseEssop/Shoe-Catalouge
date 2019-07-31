@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shoe Catalouge</title>
+    <link rel="stylesheet" href="shoe.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script type="text/x-template" class="userShoeTemplate">
+    <table>
+        <tr>
+            <td>Total</td>
+            <td>{{total}}</td>
+        </tr>
+    </table>
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box1 center">
+            <h1>Shoe Catalouge</h1>
+        </div>
+
+        <div class="row" style="margin-bottom: 100px; grid-auto-flow: row">
+            <div class="left"
+                style="font-family:'Lato', Helvetica, sans-serif;color:red; margin-top: 20px; width: 230px; float: left;">
+                Select shoe brand: <select id="shoeName" class="shoeDropDown">
+                    <option name="shoeType" value="">Show All</option>
+                    <option name="shoeType" value="Nike">Nike</option>
+                    <option name="shoeType" value="Adidas">Adidas</option>
+                    <option name="shoeType" value="Converse">Converse</option>
+                    <option name="shoeType" value="Jordan">Jordan</option>
+                    <option name="shoeType" value="Puma">Puma</option>
+                </select>
+            </div>
+
+
+            <div class="right" style="color:red; margin-top: 20px; float: right; width: 230px;">
+                Select shoe color: <select id="shoeColour" class="shoeColourDropDown">
+                    <option name="shoecolour" value="">Show All</option>
+                    <option name="shoecolour" value="blue">Blue</option>
+                    <option name="shoecolour" value="orange">Orange</option>
+                    <option name="shoecolour" value="red">Red</option>
+                    <option name="shoecolour" value="yellow">Yellow</option>
+                    <option name="shoecolour" value="white">White</option>
+                </select>
+            </div>
+
+            <div class="center" style="color:red; margin-top: 20px; float: left; width: 230px; margin-left: 150px;">
+                Select shoe size: <select id="shoeSize" class="shoeSizeDropDown">
+                    <option name="shoesize" value="">Show All</option>
+                    <option name="shoesize" value="4">4</option>
+                    <option name="shoesize" value="5">5</option>
+                    <option name="shoesize" value="6">6</option>
+                    <option name="shoesize" value="7">7</option>
+                    <option name="shoesize" value="8">8</option>
+                    <option name="shoesize" value="9">9</option>
+                    <option name="shoesize" value="10">10</option>
+                    <option name="shoesize" value="11">11</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-7" style="margin-right:0px; background: blanchedalmond; height: 100px; opacity: 0.6;">
+                <div class = "message" style="text-align:center; margin-top: 35px">
+                     
+                </div>
+
+            </div>
+            <div class="col-4" style="margin-left: 5px; height: 100px; background: blanchedalmond; opacity: 0.6">
+
+            </div>
+            <button class="button-primary addBtn" on type="button" name="button"
+                style="margin-bottom: 10px; margin-top:8px;">Add to basket</button>
+            <button class="button-primary checkoutBtn" on type="button" name="button"
+                style="margin-bottom: 10px;">Checkout</button>
+            <button class="button-primary removeBtn" on type="button" name="button">Remove</button>
+
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+                <button class="button-primary searchBtn" on type="button" name="button"
+                    style="margin-left :20px;">Search</button>
+                <button class="button-primary addShoeBtn" on type="button" name="button" style="margin-left :20px;">Add
+                    Shoe</button>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 update">
+                <table>
+                    <tr>
+                        <td>
+                            <label style="color:red"> Brand </label>
+
+                        </td>
+                        <td>
+                            <input type="text" name="Brand" id="">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label style="color:red"> Colour </label>
+                        </td>
+                        <td>
+                            <input type="text" name="Colour" id="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label style="color:red"> Size </label>
+                        </td>
+                        <td>
+                            <input type="number" name="Size" id="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label style="color:red"> Price </label>
+                        </td>
+                        <td>
+                            <input type="number" name="Price" id="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label style="color:red"> Stock </label>
+                        </td>
+                        <td>
+                            <input type="number" name="Stock" id="">
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="Shoe-log.js" charset="utf-8"></script>
+<script src="shoe-factory.js" charset="utf-8"></script>
+<script src="shoe-dom.js" charset="utf-8"></script>
+
+</html>
