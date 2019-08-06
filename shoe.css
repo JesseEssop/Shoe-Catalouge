@@ -16,8 +16,9 @@ body {
   left: 0;
   top: 0;
   font-size: 100%;
-  background-image: url(3.jpg);
+  background-image: url(shoe-wall.jpg);
   background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 /* ROOT FONT STYLES */

@@ -54,9 +54,6 @@ addBtn.addEventListener("click", function () {
     
     }
 
-
-
-
 });
 
 searchBtn.addEventListener("click", function (){

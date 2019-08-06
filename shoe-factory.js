@@ -1,12 +1,24 @@
 function ShoeFactory() {
-    console.log(shoes)
-    var cart = [];
     var message;
     var alreadyExists = false;
 
-    function ShoeTxt() {
-        return message;
+
+    function addShoe(brand, color, size, price, stock) {
+        //console.log(shoes);
+        if (brand === undefined || color === undefined || size === undefined || price === undefined || stock === undefined) {
+        }
+        var newshoe = {
+            brand: brand,
+            color: color,
+            size: Number(size),
+            price: Number(price),
+            stock: Number(stock)
+        }
+        shoes.push(newshoe)
+        console.log(shoes)
+        return "Catalouge updated"
     }
+
 
     function FindShoe(brand, color, size) {
 
@@ -20,50 +32,19 @@ function ShoeFactory() {
         message = 'Shoe not found';
     }
 
-    function addShoe(brand, color, size, price, stock) {
 
-        for (var z = 0; z < shoes.length; z++) {
-            if (brand === undefined && color === undefined && Number(size) === undefined && Number(price) === undefined) {
-            }
-            var newshoe = {
-                color: shoes[z].color,
-                brand: shoes[z].brand,
-                size: shoes[z].size,
-                price: shoes[z].price,
-                stock: shoes[z].stock,
-
-
-
-            }
-            shoes.push(newshoe)
-
-        }
-        return newshoe
+    function ShoeBasket (){
+        var cart = [];
+        
 
 
     }
 
-    function ShoeBasket(brand, color, size) {
-        console.log(shoes)
-        for (var y = 0; y < shoes.length; y++) {
-            if (brand === shoes[y].brand && color === shoes[y].color && Number(size) === shoes[y].size) {
-                shoes[z].stock = -1;
-            }
-            var kicks = {
-                brand: shoes[y].brand,
-                colour: shoes[y].color,
-                size: shoes[y].size,
-                price: shoes[y].price
-            }
-            cart.push(kicks)
 
-        }
-        console.log(kicks)
-        return kicks
+
+    function ShoeTxt() {
+        return message;
     }
-
-
-
 
     return {
         add: addShoe,
