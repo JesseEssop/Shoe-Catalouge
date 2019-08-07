@@ -13,12 +13,12 @@
     <table>
         {{#each}}
         <tr>
-            <td>Color</td>
-            <td>{{color}}</td>
-        </tr>
-        <tr>
             <td>Brand</td>
             <td>{{brand}}</td>
+        </tr>
+        <tr>
+             <td>Color</td>
+            <td>{{color}}</td>
         </tr>
         <tr>
             <td>Size</td>
@@ -28,7 +28,6 @@
             <td>Total</td>
             <td>{{total}}</td>
         </tr>
-        
         {{/each}}
     </table>
     
@@ -48,8 +47,8 @@
 
         <div class="row" style="margin-bottom: 100px; grid-auto-flow: row">
             <div class="left"
-                style="font-family:'Lato', Helvetica, sans-serif;color:red; margin-top: 20px; width: 230px; float: left;">
-               <select id="shoeName" class="shoeDropDown">
+                style="font-family:'Lato', Helvetica, sans-serif; margin-top: 20px; width: 230px; float: left;">
+               <select id="shoeName" class="shoeDropDown" style="background:rgb(255, 255, 255)">
                     <option name="shoeType" value="">Select Brand</option>
                     <option name="shoeType" value="Nike">Nike</option>
                     <option name="shoeType" value="Adidas">Adidas</option>
@@ -61,7 +60,7 @@
 
 
             <div class="right" style="color:red; margin-top: 20px; float: right; width: 230px;">
-                <select id="shoeColour" class="shoeColourDropDown">
+                <select id="shoeColour" class="shoeColourDropDown" style="background:rgb(255, 255, 255)">
                     <option name="shoecolour" value="">Select Colour</option>
                     <option name="shoecolour" value="blue">Blue</option>
                     <option name="shoecolour" value="orange">Orange</option>
@@ -72,7 +71,7 @@
             </div>
 
             <div class="center" style="color:red; margin-top: 18px; float: left; width: 230px; margin-left: 150px;">
-              <select id="shoeSize" class="shoeSizeDropDown">
+              <select id="shoeSize" class="shoeSizeDropDown" style="background:rgb(255, 255, 255)">
                     <option name="shoesize" value="">Select Size</option>
                     <option name="shoesize" value="4">4</option>
                     <option name="shoesize" value="5">5</option>
@@ -102,18 +101,18 @@
 
             </div>
             <button class="button-primary addBasketBtn" on type="button" name="button"
-                style="margin-bottom: 10px; margin-top:8px;">Add to basket</button>
+                style="margin-bottom: 10px; margin-top:8px;background:rgb(255, 255, 255)">Add to basket</button>
             <button class="button-primary checkoutBtn" on type="button" name="button"
-                style="margin-bottom: 10px;">Checkout</button>
-            <button class="button-primary removeBtn" on type="button" name="button">Remove</button>
+                style="margin-bottom: 10px;background:rgb(255, 255, 255)">Checkout</button>
+            <button class="button-primary removeBtn" on type="button" name="button" style="background:rgb(255, 255, 255)">Remove</button>
 
         </div>
         <div class="row">
             <div class="col-12">
 
                 <button class="button-primary searchBtn" on type="button" name="button"
-                    style="margin-left :20px;">Search</button>
-                <button class="button-primary addShoeBtn" on type="button" name="button" style="margin-left :20px;">Add
+                    style="margin-left :20px;background:rgb(255, 255, 255)">Search</button>
+                <button class="button-primary addShoeBtn" on type="button" name="button" style="margin-left :20px;background:rgb(255, 255, 255)">Add
                     Shoe</button>
 
             </div>

@@ -16,7 +16,11 @@ var brandInput = document.querySelector(".Brand");
 var sizeInput = document.querySelector(".Size");
 var colourInput = document.querySelector(".Colour");
 var priceInput = document.querySelector(".Price");
-var stockInput = document.querySelector(".Stock")
+var stockInput = document.querySelector(".Stock");
+
+var userTemp = document.querySelector(".userShoeTemplate").innerHTML;
+var shoeTemp = Handlebars.compile(userTemp);
+var basketData = document.querySelector(".basketData");
 
 
 
@@ -67,9 +71,14 @@ searchBtn.addEventListener("click", function (){
 });
 
 addBasketBtn.addEventListener("click", function(){
-    shoeInstance.basket();
+   // shoeInstance.basket();
     
+    var shoeDataHTML = shoeTemp({
+        brand: "Brand  name",
+        color: "Color",
+        size: "size",
+        total: "R"+"total"
+    })
 
-
-
+    basketData.innerHTML = shoeDataHTML
 });

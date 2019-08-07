@@ -5,18 +5,20 @@ function ShoeFactory() {
 
     function addShoe(brand, color, size, price, stock) {
         //console.log(shoes);
-        if (brand === undefined || color === undefined || size === undefined || price === undefined || stock === undefined) {
+        for (var i = 0; i < shoes.length; i++) {
+            if (brand !== shoes[i].brand || color !== shoes[i].color || size !== shoes[i].size || price === shoes[i].price || stock === shoes[i].price) {
+                var newshoe = {
+                    brand: brand,
+                    color: color,
+                    size: Number(size),
+                    price: Number(price),
+                    stock: Number(stock)
+                }
+            }
+            shoes.push(newshoe);
+            console.log(shoes);
+            return "Catalouge has been updated"
         }
-        var newshoe = {
-            brand: brand,
-            color: color,
-            size: Number(size),
-            price: Number(price),
-            stock: Number(stock)
-        }
-        shoes.push(newshoe)
-        console.log(shoes)
-        return "Catalouge updated"
     }
 
 
@@ -33,11 +35,9 @@ function ShoeFactory() {
     }
 
 
-    function ShoeBasket (){
+    function ShoeBasket() {
         var cart = [];
-        
-
-
+        for (var b = 0; b < shoes.length; b++) { }
     }
 
 
@@ -45,6 +45,7 @@ function ShoeFactory() {
     function ShoeTxt() {
         return message;
     }
+
 
     return {
         add: addShoe,
