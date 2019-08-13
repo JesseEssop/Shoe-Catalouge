@@ -52,15 +52,14 @@ addBtn.addEventListener("click", function () {
 
    message.innerHTML = shoeInstance.add(newBrand, newColour, newSize, newPrice, newStock);
    
-   
-    if (newBrand === "" && newColour === "" && newSize === "" && newPrice === "" && newStock === "") {
+   if (newBrand === "" && newColour === "" && newSize === "" && newPrice === "" && newStock === "") {
         return message.innerHTML = "Please fill in all fields";
     
     }
-
 });
 
-searchBtn.addEventListener("click", function (){
+
+function ShoeSearch(){
     var findshoe = shoeInstance.select(brandDropDown.value, colourDropDown.value, sizeDropDown.value );
 
     message.innerHTML = shoeInstance.text()
@@ -68,17 +67,16 @@ searchBtn.addEventListener("click", function (){
     if (brandDropDown.value === '' || sizeDropDown.value === '' || colourDropDown.value === '' ){
         return message.innerHTML = "Please select all options to find shoe"    
     }
-});
+}
+searchBtn.addEventListener("click", ShoeSearch)
 
-addBasketBtn.addEventListener("click", function(){
-   // shoeInstance.basket();
-    
-    var shoeDataHTML = shoeTemp({
-        brand: "Brand  name",
-        color: "Color",
-        size: "size",
-        total: "R"+"total"
-    })
 
-    basketData.innerHTML = shoeDataHTML
-});
+
+function ShoesCart (shoe){
+   let basket = shoeInstance.basket(brandDropDown.value, colourDropDown.value, sizeDropDown.value);
+    var createShoe = {shoe: basket };
+    var kicksHTML = shoeTemp(createShoe);
+    basketData.innerHTML = kicksHTML;
+ 
+}
+addBasketBtn.addEventListener("click", ShoesCart);

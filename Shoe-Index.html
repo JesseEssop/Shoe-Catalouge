@@ -11,24 +11,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script type="text/x-template" class="userShoeTemplate">
     <table>
-        {{#each}}
+        {{#each shoe}}
         <tr>
-            <td>Brand</td>
+            <td>Brand : </td>
             <td>{{brand}}</td>
         </tr>
         <tr>
-             <td>Color</td>
+             <td>Color :</td>
             <td>{{color}}</td>
         </tr>
         <tr>
-            <td>Size</td>
+            <td>Size :</td>
             <td>{{size}}</td>
         </tr>
         <tr>
-            <td>Total</td>
+            <td>Price :</td>
+            <td>{{price}}</td>
+        </tr>
+
+        {{/each}}
+        <tr>
+            <td>Total :</td>
             <td>{{total}}</td>
         </tr>
-        {{/each}}
     </table>
     
     </script>
@@ -48,7 +53,7 @@
         <div class="row" style="margin-bottom: 100px; grid-auto-flow: row">
             <div class="left"
                 style="font-family:'Lato', Helvetica, sans-serif; margin-top: 20px; width: 230px; float: left;">
-               <select id="shoeName" class="shoeDropDown" style="background:rgb(255, 255, 255)">
+                <select id="shoeName" class="shoeDropDown" style="background:rgb(255, 255, 255)">
                     <option name="shoeType" value="">Select Brand</option>
                     <option name="shoeType" value="Nike">Nike</option>
                     <option name="shoeType" value="Adidas">Adidas</option>
@@ -71,7 +76,7 @@
             </div>
 
             <div class="center" style="color:red; margin-top: 18px; float: left; width: 230px; margin-left: 150px;">
-              <select id="shoeSize" class="shoeSizeDropDown" style="background:rgb(255, 255, 255)">
+                <select id="shoeSize" class="shoeSizeDropDown" style="background:rgb(255, 255, 255)">
                     <option name="shoesize" value="">Select Size</option>
                     <option name="shoesize" value="4">4</option>
                     <option name="shoesize" value="5">5</option>
@@ -85,15 +90,18 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-7" style="margin-right:0px; background-color: rgba(255, 255, 255, 0.6); height: 100px; ">
+            <div class="col-7"
+                style="margin-right:0px; background-color: rgba(255, 255, 255, 0.6); height: 140px; margin-top: -20px">
                 <div>
                     <span class="message" style="text-align: center; color:rgb(255, 0, 0) !important"> </span>
                 </div>
 
             </div>
-            <div class="col-4" style="margin-left: 5px; height: 100px; background-color: rgba(255, 255, 255, 0.6)">
+            <div class="col-4"
+                style="margin-left: 5px; height: 140px; background-color: rgba(255, 255, 255, 0.6); margin-top: -20px">
                 <table>
                     <tbody class="basketData">
+
                     </tbody>
 
                 </table>
@@ -104,7 +112,8 @@
                 style="margin-bottom: 10px; margin-top:8px;background:rgb(255, 255, 255)">Add to basket</button>
             <button class="button-primary checkoutBtn" on type="button" name="button"
                 style="margin-bottom: 10px;background:rgb(255, 255, 255)">Checkout</button>
-            <button class="button-primary removeBtn" on type="button" name="button" style="background:rgb(255, 255, 255)">Remove</button>
+            <button class="button-primary removeBtn" on type="button" name="button"
+                style="background:rgb(255, 255, 255)">Remove</button>
 
         </div>
         <div class="row">
@@ -112,7 +121,8 @@
 
                 <button class="button-primary searchBtn" on type="button" name="button"
                     style="margin-left :20px;background:rgb(255, 255, 255)">Search</button>
-                <button class="button-primary addShoeBtn" on type="button" name="button" style="margin-left :20px;background:rgb(255, 255, 255)">Add
+                <button class="button-primary addShoeBtn" on type="button" name="button"
+                    style="margin-left :20px;background:rgb(255, 255, 255)">Add
                     Shoe</button>
 
             </div>

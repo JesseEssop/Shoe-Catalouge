@@ -1,12 +1,13 @@
 function ShoeFactory() {
     var message;
     var alreadyExists = false;
+    var cart = [];
+    
 
 
     function addShoe(brand, color, size, price, stock) {
-        //console.log(shoes);
-        for (var i = 0; i < shoes.length; i++) {
-            if (brand !== shoes[i].brand || color !== shoes[i].color || size !== shoes[i].size || price === shoes[i].price || stock === shoes[i].price) {
+        for (var z = 0; z < shoes.length; z++) {
+            if (brand !== shoes[z].brand && color !== shoes[z].color && size !== shoes[z].size) {
                 var newshoe = {
                     brand: brand,
                     color: color,
@@ -14,19 +15,20 @@ function ShoeFactory() {
                     price: Number(price),
                     stock: Number(stock)
                 }
+                shoes.push(newshoe);
+                console.log(shoes);
+                message = "Catalouge has been updated"
+                return message;
             }
-            shoes.push(newshoe);
-            console.log(shoes);
-            return "Catalouge has been updated"
         }
     }
-
 
     function FindShoe(brand, color, size) {
 
         for (var i = 0; i < shoes.length; i++) {
             if (brand === shoes[i].brand && color === shoes[i].color && Number(size) === shoes[i].size) {
                 message = 'We have ' + shoes[i].stock + ' ' + color + ' ' + brand + 's in stock' + ' ' + '@' + ' ' + 'R' + shoes[i].price + '.';
+                //console.log(shoes[i])
                 return 1;
             }
 
@@ -35,9 +37,24 @@ function ShoeFactory() {
     }
 
 
-    function ShoeBasket() {
-        var cart = [];
-        for (var b = 0; b < shoes.length; b++) { }
+    function ShoeBasket(brand, color, size) {
+         var cartTotal = 0;
+        for (var y = 0; y < shoes.length; y++) {
+            if (brand === shoes[y].brand && color === shoes[y].color && Number(size) === shoes[y].size){
+                cartTotal = shoes[y].stock * shoes[y].price
+                var sneaker = {
+                    brand: shoes[y].brand,
+                    color: shoes[y].color,
+                    size: shoes[y].size,
+                    price: shoes[y].price,
+                    stock: shoes[y].stock - 1,
+                    total : cartTotal,
+                }
+                console.log(sneaker)
+                cart.push(sneaker);
+            }   
+        }
+        return cart
     }
 
 
