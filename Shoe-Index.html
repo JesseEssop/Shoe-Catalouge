@@ -28,15 +28,19 @@
             <td>Price :</td>
             <td>{{price}}</td>
         </tr>
-
         {{/each}}
-        <tr>
-            <td>Total :</td>
-            <td>{{total}}</td>
-        </tr>
     </table>
-    
+    <strong>Total : {{total}}</strong>
     </script>
+    
+    <script type="text/x-template" class="BrandDropDownTemplate">
+
+        {{#each brandList}}
+        <option value = "{{this}}">{{this}}<option>
+        {{/each}}
+
+    </script>
+
 </head>
 
 <body>
@@ -54,38 +58,20 @@
             <div class="left"
                 style="font-family:'Lato', Helvetica, sans-serif; margin-top: 20px; width: 230px; float: left;">
                 <select id="shoeName" class="shoeDropDown" style="background:rgb(255, 255, 255)">
-                    <option name="shoeType" value="">Select Brand</option>
-                    <option name="shoeType" value="Nike">Nike</option>
-                    <option name="shoeType" value="Adidas">Adidas</option>
-                    <option name="shoeType" value="Converse">Converse</option>
-                    <option name="shoeType" value="Jordan">Jordan</option>
-                    <option name="shoeType" value="Puma">Puma</option>
+              
                 </select>
             </div>
 
 
             <div class="right" style="color:red; margin-top: 20px; float: right; width: 230px;">
                 <select id="shoeColour" class="shoeColourDropDown" style="background:rgb(255, 255, 255)">
-                    <option name="shoecolour" value="">Select Colour</option>
-                    <option name="shoecolour" value="blue">Blue</option>
-                    <option name="shoecolour" value="orange">Orange</option>
-                    <option name="shoecolour" value="red">Red</option>
-                    <option name="shoecolour" value="yellow">Yellow</option>
-                    <option name="shoecolour" value="white">White</option>
+              
                 </select>
             </div>
 
             <div class="center" style="color:red; margin-top: 18px; float: left; width: 230px; margin-left: 150px;">
                 <select id="shoeSize" class="shoeSizeDropDown" style="background:rgb(255, 255, 255)">
-                    <option name="shoesize" value="">Select Size</option>
-                    <option name="shoesize" value="4">4</option>
-                    <option name="shoesize" value="5">5</option>
-                    <option name="shoesize" value="6">6</option>
-                    <option name="shoesize" value="7">7</option>
-                    <option name="shoesize" value="8">8</option>
-                    <option name="shoesize" value="9">9</option>
-                    <option name="shoesize" value="10">10</option>
-                    <option name="shoesize" value="11">11</option>
+                   
                 </select>
             </div>
         </div>
@@ -98,7 +84,7 @@
 
             </div>
             <div class="col-4"
-                style="margin-left: 5px; height: 140px; background-color: rgba(255, 255, 255, 0.6); margin-top: -20px">
+                style="margin-left: 5px; height: 140px; background-color: rgba(255, 255, 255, 0.6); margin-top: -20px; overflow: scroll">
                 <table>
                     <tbody class="basketData">
 

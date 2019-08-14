@@ -2,7 +2,8 @@ function ShoeFactory() {
     var message;
     var alreadyExists = false;
     var cart = [];
-    
+    var total = 0; 
+    var stocks = 0;
 
 
     function addShoe(brand, color, size, price, stock) {
@@ -37,24 +38,33 @@ function ShoeFactory() {
     }
 
 
-    function ShoeBasket(brand, color, size) {
-         var cartTotal = 0;
+    function ShoeBasket(brand, color, size, stock) {
         for (var y = 0; y < shoes.length; y++) {
             if (brand === shoes[y].brand && color === shoes[y].color && Number(size) === shoes[y].size){
-                cartTotal = shoes[y].stock * shoes[y].price
                 var sneaker = {
                     brand: shoes[y].brand,
                     color: shoes[y].color,
-                    size: shoes[y].size,
-                    price: shoes[y].price,
-                    stock: shoes[y].stock - 1,
-                    total : cartTotal,
+                    size: Number(shoes[y].size),
+                    price: Number(shoes[y].price),
+                    stock: Number(stocks += 1),
                 }
-                console.log(sneaker)
+                    total += shoes[y].price
+                // console.log(sneaker)
                 cart.push(sneaker);
+                
             }   
         }
         return cart
+    }
+
+    function totalReturn (){
+        // console.log(total)
+        return total;
+        
+    }
+
+    function Checkout (){
+
     }
 
 
@@ -68,6 +78,8 @@ function ShoeFactory() {
         add: addShoe,
         select: FindShoe,
         text: ShoeTxt,
-        basket: ShoeBasket
+        basket: ShoeBasket,
+        total : totalReturn,
+        checkout: Checkout,
     }
 }
