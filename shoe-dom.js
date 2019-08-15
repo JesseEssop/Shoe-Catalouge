@@ -9,6 +9,10 @@ var searchBtn = document.querySelector(".searchBtn");
 var addBtn = document.querySelector(".addBtn");
 var message = document.querySelector(".message");
 
+var brandDropDown = document.querySelector(".shoeDropDown");
+var colourDropDown = document.querySelector(".shoeColourDropDown");
+var sizeDropDown = document.querySelector(".shoeSizeDropDown");
+
 var brandInput = document.querySelector(".Brand");
 var sizeInput = document.querySelector(".Size");
 var colourInput = document.querySelector(".Colour");
@@ -32,7 +36,7 @@ var active;
 window.onload = function () {
     update.style.display = 'none';
     active = false;
-    BrandDropdown();
+    BrandDropdownBuilder();
     SizeDropdown();
     ColorDropdown();
 };
@@ -63,7 +67,7 @@ addBtn.addEventListener("click", function () {
         return message.innerHTML = "Please fill in all fields";
 
     }
-    BrandDropdown();
+    BrandDropdownBuilder();
     SizeDropdown();
     ColorDropdown();
 });
@@ -74,42 +78,45 @@ function ShoeSearch() {
 
     message.innerHTML = shoeInstance.text()
 
-    if (brandDropDown.value === '' || sizeDropDown.value === '' || colourDropDown.value === '') {
+    if (brandDropDown.value === "Select Brand" || sizeDropDown.value === "Select Size" || colourDropDown.value === "Select Color") {
         return message.innerHTML = "Please select all options to find shoe"
     }
 }
 searchBtn.addEventListener("click", ShoeSearch);
 
-function BrandDropdown() {
-    var brandList = [];
+function BrandDropdownBuilder() {
+    var brandList = ["Select Brand"];
     var brands
-    
+
     for (var i = 0; i < shoes.length; i++) {
         brands = shoes[i].brand;
         var found = false;
         // console.log(brands)
         for (var y = 0; y < brandList.length; y++) {
-            // console.log(brandList)
             if (brandList[y] === brands) {
                 found = true
             }
         }
-        if (found === false){
+        if (found === false) {
             brandList.push(brands)
-          
-        }
-    }  
 
-    var createBrand = {brandList};
-    var brandHTML = shoeBrandTemp(createBrand);
-    shoeName.innerHTML = brandHTML
- 
+        }
+    }
+
+    // console.log(brandList)
+    createBrandDrop(brandList);
 }
 
+const createBrandDrop = (brandList) => {
+    var createBrand = { brandList };
+    var brandHTML = shoeBrandTemp(createBrand);
+    shoeName.innerHTML = brandHTML
+};
+
 function SizeDropdown() {
-    var sizeList = [];
+    var sizeList = ["Select Size"];
     var sizes
-    
+
     for (var i = 0; i < shoes.length; i++) {
         sizes = shoes[i].size;
         var sizefound = false;
@@ -120,47 +127,45 @@ function SizeDropdown() {
                 sizefound = true
             }
         }
-        if (sizefound === false){
+        if (sizefound === false) {
             sizeList.push(sizes)
-            sizeList.sort(function(a, b){return a-b})
-          
+            sizeList.sort(function (a, b) { return a - b })
+
         }
-       
-    }  
-    
-    var createSize = {brandList: sizeList};
+
+    }
+
+    var createSize = { brandList: sizeList };
     var sizeHTML = shoeBrandTemp(createSize);
     shoeSize.innerHTML = sizeHTML
- 
+
 }
 
 function ColorDropdown() {
-    var colorList = [];
+    var colorList = ["Select Color"];
     var colors
-    
+
     for (var i = 0; i < shoes.length; i++) {
         colors = shoes[i].color;
         var colorfound = false;
         // console.log(brands)
         for (var y = 0; y < colorList.length; y++) {
-            console.log(colorList)
+            // console.log(colorList)
             if (colorList[y] === colors) {
                 colorfound = true
             }
         }
-        if (colorfound === false){
+        if (colorfound === false) {
             colorList.push(colors)
-          
-        }
-    }  
 
-    var createColor = {brandList : colorList};
+        }
+    }
+
+    var createColor = { brandList: colorList };
     var colorHTML = shoeBrandTemp(createColor);
     shoeColor.innerHTML = colorHTML
- 
+
 }
-
-
 
 
 function ShoesCart(shoe) {
@@ -169,6 +174,21 @@ function ShoesCart(shoe) {
     var createShoe = { shoe: basket, total };
     var kicksHTML = shoeTemp(createShoe);
     basketData.innerHTML = kicksHTML;
+    
+    shoeInstance.select(brandDropDown.value, colourDropDown.value, sizeDropDown.value);
+    message.innerHTML = shoeInstance.text()
 
 }
 addBasketBtn.addEventListener("click", ShoesCart);
+
+
+checkoutBtn.addEventListener('click', function () {
+    basketData.innerHTML = ""
+});
+
+removeBtn.addEventListener('click', function (){
+    shoeInstance.return(shoeInstance.basket(brandDropDown.value, colourDropDown.value, sizeDropDown.value))
+    basketData.innerHTML = "";
+
+});
+

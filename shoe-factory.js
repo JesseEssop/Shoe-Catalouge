@@ -2,8 +2,9 @@ function ShoeFactory() {
     var message;
     var alreadyExists = false;
     var cart = [];
-    var total = 0; 
+    var total = 0;
     var stocks = 0;
+
 
 
     function addShoe(brand, color, size, price, stock) {
@@ -17,7 +18,7 @@ function ShoeFactory() {
                     stock: Number(stock)
                 }
                 shoes.push(newshoe);
-                console.log(shoes);
+                // console.log(shoes);
                 message = "Catalouge has been updated"
                 return message;
             }
@@ -40,7 +41,7 @@ function ShoeFactory() {
 
     function ShoeBasket(brand, color, size, stock) {
         for (var y = 0; y < shoes.length; y++) {
-            if (brand === shoes[y].brand && color === shoes[y].color && Number(size) === shoes[y].size){
+            if (brand === shoes[y].brand && color === shoes[y].color && Number(size) === shoes[y].size) {
                 var sneaker = {
                     brand: shoes[y].brand,
                     color: shoes[y].color,
@@ -48,25 +49,36 @@ function ShoeFactory() {
                     price: Number(shoes[y].price),
                     stock: Number(stocks += 1),
                 }
-                    total += shoes[y].price
+                total += shoes[y].price
+                shoes[y].stock--;
                 // console.log(sneaker)
                 cart.push(sneaker);
-                
-            }   
+
+                // } console.log(shoes[y])
+            }
+            // console.log(cart)
+            return cart
         }
-        return cart
     }
 
-    function totalReturn (){
+    function totalReturn() {
         // console.log(total)
         return total;
-        
-    }
-
-    function Checkout (){
 
     }
 
+    function ShoeReturn() {
+        for (var i = 0; cart < cart.length; i++) {
+            for (var r = 0; r < shoes.length; r++) {
+                if (cart[i].brand === shoes[r].brand && cart[i].color === shoe[r].color && Number(cart[i].size) === shoes[r].size && Number(cart[i].price) === shoes[r].price) {
+                    total = 0;
+                    shoes[y].stock += cart[i].stock;
+                    shoes.push(cart[i]);
+                }
+            }
+        }
+        console.log(shoes)
+    }
 
 
     function ShoeTxt() {
@@ -79,7 +91,8 @@ function ShoeFactory() {
         select: FindShoe,
         text: ShoeTxt,
         basket: ShoeBasket,
-        total : totalReturn,
-        checkout: Checkout,
+        total: totalReturn,
+        return: ShoeReturn
     }
 }
+
