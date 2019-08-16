@@ -7,23 +7,38 @@ function ShoeFactory() {
 
 
 
+
     function addShoe(brand, color, size, price, stock) {
+        var theSize = Number(size)
+        var thePrice = Number(price)
+        var theStock = Number(stock)
+        var found = false;
+
         for (var z = 0; z < shoes.length; z++) {
-            if (brand !== shoes[z].brand && color !== shoes[z].color && size !== shoes[z].size) {
-                var newshoe = {
-                    brand: brand,
-                    color: color,
-                    size: Number(size),
-                    price: Number(price),
-                    stock: Number(stock)
-                }
-                shoes.push(newshoe);
-                // console.log(shoes);
-                message = "Catalouge has been updated"
-                return message;
+            if (brand === shoes[z].brand && color === shoes[z].color && theSize === shoes[z].size && thePrice === shoes[z].price) {
+                alreadyExists = true;
+                shoes[z].stock += theStock;
+                console.log(shoes)
+                found = true;
+                message = "Stock updated"
+            };
+        }
+        if (!found) {
+            alreadyExists = false;
+
+            newshoe = {
+                brand: brand,
+                color: color,
+                size: Number(size),
+                price: Number(price),
+                stock: Number(stock)
             }
+            shoes.push(newshoe);
+            console.log(shoes);
+            message = "Catalouge has been updated"
         }
     }
+
 
     function FindShoe(brand, color, size) {
 
@@ -51,12 +66,8 @@ function ShoeFactory() {
                 }
                 total += shoes[y].price
                 shoes[y].stock--;
-                // console.log(sneaker)
                 cart.push(sneaker);
-
-                // } console.log(shoes[y])
             }
-            // console.log(cart)
             return cart
         }
     }
@@ -67,18 +78,25 @@ function ShoeFactory() {
 
     }
 
-    function ShoeReturn() {
-        for (var i = 0; cart < cart.length; i++) {
-            for (var r = 0; r < shoes.length; r++) {
-                if (cart[i].brand === shoes[r].brand && cart[i].color === shoe[r].color && Number(cart[i].size) === shoes[r].size && Number(cart[i].price) === shoes[r].price) {
-                    total = 0;
-                    shoes[y].stock += cart[i].stock;
-                    shoes.push(cart[i]);
+    function ShoeReturn(brand, color, size, price, stock) {
+        for (var y = 0; y < shoes.length; y++) {
+            if (brand === shoes[y].brand && color === shoes[y].color && Number(size) === shoes[y].size) {
+                var sneaker = {
+                    brand: shoes[y].brand,
+                    color: shoes[y].color,
+                    size: Number(shoes[y].size),
+                    price: Number(shoes[y].price),
+                    stock: Number(stocks =- 1),
                 }
+                total = 0;
+                stock--
+                shoes[y].stock++;
+                shoes.push(sneaker);
             }
+            message =  'We have ' + shoes[y].stock + ' ' + color + ' ' + brand + 's in stock' + ' ' + '@' + ' ' + 'R' + shoes[y].price + '.';
         }
-        console.log(shoes)
     }
+
 
 
     function ShoeTxt() {

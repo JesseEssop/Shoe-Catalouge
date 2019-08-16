@@ -61,12 +61,13 @@ addBtn.addEventListener("click", function () {
     var newPrice = priceInput.value;
     var newStock = stockInput.value;
 
-    message.innerHTML = shoeInstance.add(newBrand, newColour, newSize, newPrice, newStock);
-
+    shoeInstance.add(newBrand, newColour, newSize, newPrice, newStock);
+    message.innerHTML = shoeInstance.text();
+    
     if (newBrand === "" && newColour === "" && newSize === "" && newPrice === "" && newStock === "") {
-        return message.innerHTML = "Please fill in all fields";
-
+        return message.innerHTML = "Please fill in all fields"
     }
+
     BrandDropdownBuilder();
     SizeDropdown();
     ColorDropdown();
@@ -86,7 +87,7 @@ searchBtn.addEventListener("click", ShoeSearch);
 
 function BrandDropdownBuilder() {
     var brandList = ["Select Brand"];
-    var brands
+    var brands;
 
     for (var i = 0; i < shoes.length; i++) {
         brands = shoes[i].brand;
@@ -130,9 +131,7 @@ function SizeDropdown() {
         if (sizefound === false) {
             sizeList.push(sizes)
             sizeList.sort(function (a, b) { return a - b })
-
         }
-
     }
 
     var createSize = { brandList: sizeList };
@@ -157,7 +156,6 @@ function ColorDropdown() {
         }
         if (colorfound === false) {
             colorList.push(colors)
-
         }
     }
 
@@ -176,8 +174,7 @@ function ShoesCart(shoe) {
     basketData.innerHTML = kicksHTML;
     
     shoeInstance.select(brandDropDown.value, colourDropDown.value, sizeDropDown.value);
-    message.innerHTML = shoeInstance.text()
-
+    message.innerHTML = shoeInstance.text();
 }
 addBasketBtn.addEventListener("click", ShoesCart);
 
