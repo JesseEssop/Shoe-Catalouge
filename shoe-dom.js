@@ -166,7 +166,7 @@ function ColorDropdown() {
 }
 
 
-function ShoesCart(shoe) {
+function ShoesCart() {
     let basket = shoeInstance.basket(brandDropDown.value, colourDropDown.value, sizeDropDown.value);
     var total = shoeInstance.total();
     var createShoe = { shoe: basket, total };
@@ -184,8 +184,11 @@ checkoutBtn.addEventListener('click', function () {
 });
 
 removeBtn.addEventListener('click', function (){
-    shoeInstance.return(shoeInstance.basket(brandDropDown.value, colourDropDown.value, sizeDropDown.value))
-    basketData.innerHTML = "";
+    
+    shoeInstance.return(brandDropDown.value, colourDropDown.value, sizeDropDown.value);
+    console.log(shoes);
+    ShoeSearch();
+    // basketData.innerHTML = "";
 
 });
 
