@@ -15,7 +15,7 @@ describe('Shoe Catalouge tests', function () {
     it('This test returns an error message when all the fields are not filled.', function () {
         var testInstance = ShoeFactory();
         testInstance.add("", "", "", "", "", "");
-        assert.equal(testInstance.text(), "Please fill in all the fields")
+        assert.equal(testInstance.text(), "Enter valid shoe name")
     });
 
     it('This test put the shoes in the cart and returns the total amount of cart.', function () {
