@@ -65,7 +65,7 @@ addBtn.addEventListener("click", function () {
     message.innerHTML = shoeInstance.text();
     
     if (newBrand === "" && newColour === "" && newSize === "" && newPrice === "" && newStock === "") {
-        return message.innerHTML = "Please fill in all fields"
+       message.innerHTML = shoeInstance.text()
     }
 
     BrandDropdownBuilder();
@@ -80,7 +80,7 @@ function ShoeSearch() {
     message.innerHTML = shoeInstance.text()
 
     if (brandDropDown.value === "Select Brand" || sizeDropDown.value === "Select Size" || colourDropDown.value === "Select Color") {
-        return message.innerHTML = "Please select all options to find shoe"
+        message.innerHTML = "Please select all options to find shoe"
     }
 }
 searchBtn.addEventListener("click", ShoeSearch);

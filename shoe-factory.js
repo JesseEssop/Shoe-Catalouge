@@ -4,39 +4,58 @@ function ShoeFactory() {
     var cart = [];
     var total = 0;
     var stocks = 0;
+    var regex = /[a-zA-Z]/g;
 
 
 
 
     function addShoe(brand, color, size, price, stock) {
+        var theBrand = brand.toUpperCase().trim();
+        var theColor = color.toUpperCase().trim();
         var theSize = Number(size)
         var thePrice = Number(price)
         var theStock = Number(stock)
         var found = false;
+        var wack = regex.test(theBrand, theColor);
 
-        for (var z = 0; z < shoes.length; z++) {
-            if (brand === shoes[z].brand && color === shoes[z].color && theSize === shoes[z].size && thePrice === shoes[z].price) {
-                alreadyExists = true;
-                shoes[z].stock += theStock;
-                console.log(shoes)
-                found = true;
-                message = "Stock updated"
-            };
-        }
-        if (!found) {
-            alreadyExists = false;
+        if (wack === true) {
 
-            newshoe = {
-                brand: brand,
-                color: color,
-                size: Number(size),
-                price: Number(price),
-                stock: Number(stock)
+            for (var z = 0; z < shoes.length; z++) {
+                if (theBrand === shoes[z].brand && theColor === shoes[z].color && theSize === shoes[z].size && thePrice === shoes[z].price) {
+                    alreadyExists = true;
+                    shoes[z].stock += theStock;
+                    console.log(shoes)
+                    found = true;
+                    message = "Stock updated"
+                }
             }
-            shoes.push(newshoe);
-            console.log(shoes);
-            message = "Catalouge has been updated"
+
+            if (!found) {
+                alreadyExists = false;
+
+                var newshoe = {
+                    brand: theBrand,
+                    color: theColor,
+                    size: Number(size),
+                    price: Number(price),
+                    stock: Number(stock)
+                }
+
+                if (brand === "" && color === "" && size === "" && price === "" && stock === "") {
+                    message = "Please fill in all the fields"
+                }
+                else {
+                    shoes.push(newshoe);
+                    console.log(shoes);
+                    message = "Catalouge has been updated";
+                }
+
+            }
         }
+        if(wack === false){
+            message = "Enter valid shoe name"
+        }
+
     }
 
 
@@ -56,8 +75,7 @@ function ShoeFactory() {
 
     function ShoeBasket(brand, color, size, stock) {
         alreadyExists = false;
-        for (var y = 0; y < shoes.length; y++) 
-        {
+        for (var y = 0; y < shoes.length; y++) {
             if (brand === shoes[y].brand && color === shoes[y].color && Number(size) === shoes[y].size) {
                 total += shoes[y].price;
                 shoes[y].stock--;
