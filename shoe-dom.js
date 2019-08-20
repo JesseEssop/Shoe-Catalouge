@@ -45,9 +45,10 @@ addShoeBtn.addEventListener("click", function () {
     if (!active) {
         update.style.display = 'unset';
         active = true;
-    } else {
+    }
+    else {
         update.style.display = 'none';
-        acive = false;
+        active = false;
     }
 });
 
@@ -63,9 +64,9 @@ addBtn.addEventListener("click", function () {
 
     shoeInstance.add(newBrand, newColour, newSize, newPrice, newStock);
     message.innerHTML = shoeInstance.text();
-    
+
     if (newBrand === "" && newColour === "" && newSize === "" && newPrice === "" && newStock === "") {
-       message.innerHTML = shoeInstance.text()
+        message.innerHTML = shoeInstance.text()
     }
 
     BrandDropdownBuilder();
@@ -172,7 +173,7 @@ function ShoesCart() {
     var createShoe = { shoe: basket, total };
     var kicksHTML = shoeTemp(createShoe);
     basketData.innerHTML = kicksHTML;
-    
+
     shoeInstance.select(brandDropDown.value, colourDropDown.value, sizeDropDown.value);
     message.innerHTML = shoeInstance.text();
 }
@@ -183,8 +184,8 @@ checkoutBtn.addEventListener('click', function () {
     basketData.innerHTML = ""
 });
 
-removeBtn.addEventListener('click', function (){
-    
+removeBtn.addEventListener('click', function () {
+
     shoeInstance.return(brandDropDown.value, colourDropDown.value, sizeDropDown.value);
     console.log(shoes);
     ShoeSearch();
