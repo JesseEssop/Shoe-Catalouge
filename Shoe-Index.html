@@ -39,6 +39,20 @@
         {{/each}}
     </script>
 
+    <script type="text/x-template" class="shoeLogTemplate">
+    {{#each kicks}}
+    <tr>
+        <td>{{brand}}</td>
+        <td>{{color}}</td>
+        <td>{{size}}</td>
+        <td>{{price}}</td>
+        <td>{{stock}}</td>
+    </tr>
+    {{/each}}
+    
+    
+    </script>
+
 </head>
 
 <body>
@@ -56,7 +70,7 @@
             <div class="left"
                 style="font-family:'Lato', Helvetica, sans-serif; margin-top: 20px; width: 230px; float: left;">
                 <select id="shoeName" class="shoeDropDown" style="background:rgb(255, 255, 255)">
-                  
+
 
                 </select>
             </div>
@@ -64,17 +78,17 @@
 
             <div class="right" style="color:red; margin-top: 20px; float: right; width: 230px;">
                 <select id="shoeColour" class="shoeColourDropDown" style="background:rgb(255, 255, 255)">
-                  
+
                 </select>
             </div>
 
             <div class="center" style="color:red; margin-top: 18px; float: left; width: 230px; margin-left: 150px;">
                 <select id="shoeSize" class="shoeSizeDropDown" style="background:rgb(255, 255, 255)">
-                  
+
                 </select>
             </div>
         </div>
-        <div class="row" style = "margin-top: -10px">
+        <div class="row" style="margin-top: -10px">
             <div class="col-7"
                 style="margin-right:0px; background-color: rgba(255, 255, 255, 0.6); height: 140px; margin-top: -20px">
                 <div>
@@ -83,7 +97,7 @@
 
             </div>
             <div class="col-4"
-                style="margin-left: 5px; height: 140px; background-color: rgba(255, 255, 255, 0.6); margin-top: -20px; overflow: scroll">
+                style="margin-left: 5px; height: 140px; background-color: rgba(255, 255, 255, 0.6); margin-top: -20px">
                 <table>
                     <tbody class="basketData">
 
@@ -113,7 +127,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 update">
+            <div class="col-4 update">
                 <table style="background:rgba(255, 255, 255, 0.507)">
                     <tr>
                         <td>
@@ -163,6 +177,25 @@
                     <button class="button-primary addBtn" type="button">Add</button>
                 </div>
             </div>
+
+            <div class="col-7 right"
+                style="margin-right:0px; background-color: rgba(255, 255, 255, 0.6);height: 140px; overflow: scroll;">
+
+                <table>
+                    <tr>
+                      <th>Brand</th>
+                      <th>Color</th>
+                      <th>Size</th>
+                      <th>Price</th>
+                      <th>Stock</th>
+                    </tr>
+                    <tbody class="userData">
+                      
+                    </tbody>
+                  </table>
+
+            </div>
+
         </div>
 
     </div>

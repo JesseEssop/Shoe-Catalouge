@@ -10,8 +10,8 @@ function ShoeFactory() {
 
 
     function addShoe(brand, color, size, price, stock) {
-        var theBrand = brand.toUpperCase().trim();
-        var theColor = color.toUpperCase().trim();
+        var theBrand = brand.charAt(0).toUpperCase() + brand.slice(1);;
+        var theColor = color.charAt(0).toUpperCase() + color.slice(1);
         var theSize = Number(size)
         var thePrice = Number(price)
         var theStock = Number(stock)
@@ -52,7 +52,7 @@ function ShoeFactory() {
 
             }
         }
-        if(wack === false){
+        if (wack === false) {
             message = "Enter valid shoe name"
         }
 
@@ -79,6 +79,14 @@ function ShoeFactory() {
             if (brand === shoes[y].brand && color === shoes[y].color && Number(size) === shoes[y].size) {
                 total += shoes[y].price;
                 shoes[y].stock--;
+                
+                if (shoes[y].stock <= 0) {
+                    shoes.splice(shoes[y].brand && shoes[y].color && shoes[y].size && shoes[y].stock);
+                    message = "Out of stock!"
+                }
+    
+
+
                 for (let x = 0; x < cart.length; x++) {
                     // console.log(x)
                     // console.log(cart[x].brand, cart[x].color, cart[x].size)
@@ -90,7 +98,12 @@ function ShoeFactory() {
                     }
                 }
             }
+            
+            
+
+           
         }
+
         if (!alreadyExists) {
             var sneaker = {
                 brand: brand,
@@ -100,7 +113,6 @@ function ShoeFactory() {
             }
             cart.push(sneaker)
         }
-
         console.log(cart);
     }
 

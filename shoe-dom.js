@@ -8,6 +8,7 @@ var update = document.querySelector(".update");
 var searchBtn = document.querySelector(".searchBtn");
 var addBtn = document.querySelector(".addBtn");
 var message = document.querySelector(".message");
+var logmsg = document.querySelector(".log")
 
 var brandDropDown = document.querySelector(".shoeDropDown");
 var colourDropDown = document.querySelector(".shoeColourDropDown");
@@ -29,6 +30,11 @@ var shoeName = document.querySelector("#shoeName");
 var shoeColor = document.querySelector("#shoeColour");
 var shoeSize = document.querySelector("#shoeSize");
 
+var listTemp = document.querySelector(".shoeLogTemplate").innerHTML;
+var shoeListTemp = Handlebars.compile(listTemp);
+var userList = document.querySelector(".userData");
+
+
 
 var shoeInstance = ShoeFactory();
 var active;
@@ -39,6 +45,9 @@ window.onload = function () {
     BrandDropdownBuilder();
     SizeDropdown();
     ColorDropdown();
+    ShoeTempList();
+    
+
 };
 
 addShoeBtn.addEventListener("click", function () {
@@ -52,6 +61,13 @@ addShoeBtn.addEventListener("click", function () {
     }
 });
 
+
+function ShoeTempList (){
+    var userData = {kicks: shoes};
+    var userDataHTML = shoeListTemp(userData);
+    userList.innerHTML = userDataHTML;
+    
+}
 
 
 addBtn.addEventListener("click", function () {
@@ -72,6 +88,7 @@ addBtn.addEventListener("click", function () {
     BrandDropdownBuilder();
     SizeDropdown();
     ColorDropdown();
+    ShoeTempList();
 });
 
 
