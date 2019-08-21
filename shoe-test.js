@@ -20,15 +20,15 @@ describe('Shoe Catalouge tests', function () {
 
     it('This test put the shoes in the cart and returns the total amount of cart.', function () {
         var testInstance = ShoeFactory();
-        testInstance.basket("Nike", 'blue', 9, 350, 5);
-        testInstance.basket("Nike", 'blue', 9, 350, 5);
+        testInstance.basket("Nike", 'Blue', 9, 350, 1);
+        testInstance.basket("Nike", 'Blue', 9, 350, 1);
         assert.equal(testInstance.total(), 700)
     });
     
     it('This test searches for a shoe in the shoe log and returns a message when the shoe is found.', function () {
         var testInstance = ShoeFactory();
-        testInstance.select("Jordan", 'red', 11, 500, 2);
-        assert.equal(testInstance.text(),"We have 2 red Jordans in stock @ R500." )
+        testInstance.select("Jordan", 'Red', 11, 500, 2);
+        assert.equal(testInstance.text(),"We have 2 Red Jordans in stock @ R500." )
     });
     
     it('This test searches for a shoe in the shoe log and returns a message when the shoe is not found.', function () {

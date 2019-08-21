@@ -80,10 +80,7 @@ function ShoeFactory() {
                 total += shoes[y].price;
                 shoes[y].stock--;
                 
-                if (shoes[y].stock <= 0) {
-                    shoes.splice(shoes[y].brand && shoes[y].color && shoes[y].size && shoes[y].stock);
-                    message = "Out of stock!"
-                }
+                
     
 
 
@@ -98,10 +95,13 @@ function ShoeFactory() {
                     }
                 }
             }
-            
-            
 
-           
+            if (shoes[y].stock <= 0) {
+                shoes.splice(shoes[y].brand && shoes[y].color && shoes[y].size && shoes[y].stock);
+                message = "Out of stock!"
+            }
+            
+        
         }
 
         if (!alreadyExists) {
