@@ -74,13 +74,20 @@ function ShoeFactory() {
 
 
     function ShoeBasket(brand, color, size, stock) {
+        console.log(brand)
+        console.log(color)
+        console.log(size)
+        
         alreadyExists = false;
         for (var y = 0; y < shoes.length; y++) {
             if (brand === shoes[y].brand && color === shoes[y].color && Number(size) === shoes[y].size) {
                 total += shoes[y].price;
                 shoes[y].stock--;
                 
-                
+                if (shoes[y].stock <= 0) {
+                shoes.splice(y,1);
+            }
+            
     
 
 
@@ -96,10 +103,6 @@ function ShoeFactory() {
                 }
             }
 
-            if (shoes[y].stock <= 0) {
-                shoes.splice(shoes[y].brand && shoes[y].color && shoes[y].size && shoes[y].stock);
-                message = "Out of stock!"
-            }
             
         
         }
@@ -113,7 +116,7 @@ function ShoeFactory() {
             }
             cart.push(sneaker)
         }
-        console.log(cart);
+        // console.log(cart);
     }
 
     function totalReturn() {

@@ -193,6 +193,8 @@ function ShoesCart() {
 
     shoeInstance.select(brandDropDown.value, colourDropDown.value, sizeDropDown.value);
     message.innerHTML = shoeInstance.text();
+    ShoeTempList();
+
 }
 addBasketBtn.addEventListener("click", ShoesCart);
 
@@ -206,7 +208,8 @@ removeBtn.addEventListener('click', function () {
     shoeInstance.return(brandDropDown.value, colourDropDown.value, sizeDropDown.value);
     console.log(shoes);
     ShoeSearch();
-    // basketData.innerHTML = "";
+    ShoeTempList();
+    basketData.innerHTML = ""
 
 });
 
